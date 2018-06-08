@@ -19,7 +19,6 @@ var wins = 0;
 var guessRemain = 12;
 var alreadyGuessed = [];
 
-
 // Select a word at random within the array to be in play
 var chosenWord = wordChoices[Math.floor(Math.random() * wordChoices.length)];
 
