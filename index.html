@@ -4,41 +4,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
-    <meta name="description" content="Psychic-Game, Freelance Full Stack Web Developer">
+    <meta name="description" content="Word-Guess-Game, Freelance Full Stack Web Developer">
     <meta name="keywords" content="Game, Word-Guess, Freelance Developer, UCBX Coding Bootcamp, Danny Nguyen">
     <meta name="author" content="Danny Nguyen">
-    <title>Psychic-Game</title>
+    <title>Word Guess Game</title>
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 
-<body>
+<body class="bg-dark">
     <header>
-        IMG BANNER CENTERED
+        <img src="assets/images/banner.png" alt="Hangman Banner" class="center">
     </header>
 
     <div class="container">
         <div class="row">
-            <div class="col-md-6">
-                <h2>You just typed <span id="user-text"><strong>...Nothing.</strong></span></h2>
+            <div class="col-md-6 id="image-box">
+                <img id="col-img" src="assets/images/Hangman.jpg">
             </div>
-            <div class="col-md-6">
-            TEXT
+            <div class="col-md-6" id="game-box">
+            <p>PRESS ANY KEY TO GET STARTED!</p>
+            <p>WINS:</p>
+            <p id="wins"></p>
+            <p>CURRENT WORD</p>
+            <p id="chosenWord"></p>
+            <p>NUMBER OF GUESSES REMANING</p>
+            <p id="guessRemain"></p>
+            <p>LETTERS ALREADY GUESSED</p>
+            <p id="alreadyGuessed"></p>
             </div>
         </div>      
     </div>
 
-<script type="text/javascript">
-    // Let's start by grabbing a reference to the <span> below.
-    var userText = document.getElementById("user-text");
-
-    // Next, we give JavaScript a function to execute when onkeyup event fires.
-    document.onkeyup = function(event) {
-        userText.textContent = event.key;
-    };
-</script>
-  
 <script src="assets/javascript/game.js"></script> 
 
 </body>

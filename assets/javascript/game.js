@@ -1,33 +1,101 @@
-/*  1) We create an array with possible words to guess. */
-var wordChoices =["DANNY", "NGUYEN", "HELLO", "GOODBYE"];
+// Array with possible words to guess (11)
+var wordChoices =[
+    "DANNY",
+    "NGUYEN",
+    "HELLO",
+    "GOODBYE",
+    "SUNDAY",
+    "MONDAY",
+    "TUESDAY",
+    "WEDNESDAY",
+    "THURSDAY",
+    "FRIDAY",
+    "SATURDAY",
+];
 
-/*  2) We create code to select a word at random within the array. That word will be in play. */
+//Variable for Wins, Guesses Remaining, and Already Guessed
+var wins = 0;
+var guessRemain = 12;
+var alreadyGuessed = [];
+
+
+// Select a word at random within the array to be in play
 var chosenWord = wordChoices[Math.floor(Math.random() * wordChoices.length)];
 
-/*  3) We create code to count the character length of the chosenWord and display "_" for that amount. */
-document.write("_ ")= chosenWord.length 
+console.log(chosenWord);
 
-/* 4) We create code that when player presses key to guess, if a character is guessed correctly, we replace "_" with that letter in it's correct position (also minus from guess counter). Else, we add it to incorrect guess list and again minus from guess counter. */
+// Word in play will be hidden
+var wordDisplay =[];
+    for (var i = 0; i < chosenWord.length; i++){
+        wordDisplay[i] = "_";
+    }
+
+//Render Chosen Word, Guesses Remaining, and Already Guessed
+function renderChosenWord(){
+    document.querySelector("#chosenWord").innerHTML = wordDisplay.join(" ");
+}
+
+function renderGuessRemain(){
+    document.querySelector("#guessRemain").innerHTML = guessRemain;
+}
+
+function renderAlreadyGuessed(){
+    document.querySelector("#alreadyGuessed").innerHTML = alreadyGuessed.join(" ");
+}
+
+// Function that Updates Score and Reset Game
+function updateWins(){
+    if (wordDisplay.join("") === chosenWord){
+        alert("You got it! The word was: " + wordDisplay.join("") + "\nPress ENTER or click OK to continue!");
+        wins++;
+        updateGame();
+    }
+    document.querySelector("#wins").innerHTML = wins;
+}
+
+function updateGame(){
+    chosenWord = wordChoices[Math.floor(Math.random() * wordChoices.length)];
+    wordDisplay =[];
+    for (var i = 0; i < chosenWord.length; i++){
+        wordDisplay[i] = "_";
+    }
+    renderChosenWord();
+    guessRemain = 12;
+    renderGuessRemain();
+    alreadyGuessed =[];
+    renderAlreadyGuessed();
+}
+
+function youLose(){
+    if (guessRemain <= 0){
+        alert("You've lost!")
+        wins = 0;
+        updateGame();
+    }
+}
+
+// User Interaction Fuction and Outcomes
 document.onkeyup = function(event){
-    var userGuess = event.key;
 
-    if (((userGuess === "D") || (userGuess === "A") || (userGuess === "N") || (userGuess === "Y")) {
-        document.write(something);
+    var userGuess = event.key.toUpperCase();
+    
+    for (var j = 0; j < chosenWord.length; j++){
+        if (chosenWord[j] === userGuess){
+            wordDisplay[j] = userGuess;  
+       } 
+       /* else {
+            alreadyGuessed.push(userGuess[0]);
+            guessRemain - 1;
+            console.log(userGuess);
+        } */
     }
-
-    else {
-        document.write(userGuess) to incorrect list. 
-    }
-
-    guessCounter --i;
+    guessRemain--;
+    alreadyGuessed.push(userGuess);
+    renderChosenWord();
+    renderAlreadyGuessed();
+    renderGuessRemain();
+    updateWins();
+    youLose();
 }
-
-/*  5) If all characters are guessed correctly before the guess counter limit, then you win (add a score to wins counter) and the program runs again with another randomly selected word.
-    6) Else, if all characters are not guessed correctly before the guess counter limit, then you lose.
-
-/* Function for Chosen Word */
-function chosenWord(computerChoices){
-    for (var i = 0; i < computerChoices; i++){
-
-    }
-}
+renderChosenWord();
+renderGuessRemain();
