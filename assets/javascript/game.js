@@ -1,16 +1,17 @@
-// Array with possible words to guess (11)
+// Array with possible words to guess (12)
 var wordChoices =[
-    "DANNY",
-    "NGUYEN",
-    "HELLO",
-    "GOODBYE",
-    "SUNDAY",
-    "MONDAY",
-    "TUESDAY",
-    "WEDNESDAY",
-    "THURSDAY",
-    "FRIDAY",
-    "SATURDAY",
+    "DEATH",
+    "BLOOD",
+    "HOMICIDE",
+    "DANGER",
+    "GHOST",
+    "BOOGEYMAN",
+    "HALLOWEEN",
+    "OCTOBER",
+    "HORROR",
+    "SCREAMS",
+    "REDRUM",
+    "SHINING"
 ];
 
 //Variable for Wins, Guesses Remaining, and Already Guessed
@@ -21,8 +22,6 @@ var alreadyGuessed = [];
 
 // Select a word at random within the array to be in play
 var chosenWord = wordChoices[Math.floor(Math.random() * wordChoices.length)];
-
-console.log(chosenWord);
 
 // Word in play will be hidden
 var wordDisplay =[];
@@ -43,7 +42,7 @@ function renderAlreadyGuessed(){
     document.querySelector("#alreadyGuessed").innerHTML = alreadyGuessed.join(" ");
 }
 
-// Function that Updates Score and Reset Game
+// Function that Updates Scores, Game, and Lose alert
 function updateWins(){
     if (wordDisplay.join("") === chosenWord){
         alert("You got it! The word was: " + wordDisplay.join("") + "\nPress ENTER or click OK to continue!");
@@ -64,11 +63,12 @@ function updateGame(){
     renderGuessRemain();
     alreadyGuessed =[];
     renderAlreadyGuessed();
+    console.log("THE WORD IS: "+ chosenWord + "... TSK TSK CHEATER! HAHA");
 }
 
 function youLose(){
     if (guessRemain <= 0){
-        alert("You've lost!")
+        alert("You've lost! You had " + wins + " wins... I guess you can live...")
         wins = 0;
         updateGame();
     }
@@ -83,11 +83,6 @@ document.onkeyup = function(event){
         if (chosenWord[j] === userGuess){
             wordDisplay[j] = userGuess;  
        } 
-       /* else {
-            alreadyGuessed.push(userGuess[0]);
-            guessRemain - 1;
-            console.log(userGuess);
-        } */
     }
     guessRemain--;
     alreadyGuessed.push(userGuess);

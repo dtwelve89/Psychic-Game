@@ -1,23 +1,17 @@
 header{
-    margin-bottom:100px;
+    margin-bottom:120px;
 }
 
 body{
     background-color: black;
 }
 
-.container{
-    font: red 16px;
-}
-
-#image-box{
-    border: solid black 3px;
-}
 .center{
     display:block;
     margin-left:auto;
     margin-right:auto;
-    widows: 30%;
+    margin-top:50px;
+    width:1000px;
 }
 
 #col-img{
