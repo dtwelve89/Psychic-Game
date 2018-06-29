@@ -1,9 +1,16 @@
-header{
-    margin-bottom:120px;
+html, body{
+    height:100%;
+}
+
+header img{
+    width:100%;
 }
 
 body{
     background-color: black;
+    font:normal 16px/1.6em 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
+    display:flex;
+    flex-direction:column;
 }
 
 .center{
@@ -14,6 +21,50 @@ body{
     width:1000px;
 }
 
-#col-img{
-    width:300px;
+.container{
+    width:960px;
+    margin:auto;
+    overflow:auto;
+    flex:1 0 auto;
 }
+
+#col-img{
+    width:100%;
+    margin:auto;
+}
+
+#game-box{
+    text-align:center;
+    margin-top:50px;
+}
+
+#main-content{
+    margin:auto;
+    margin-top:20px;
+}
+
+#main-footer{
+    font-size:small;
+    text-align:center;
+    padding:15px 0;
+    margin-top:50px;
+    flex-shrink:0;
+}
+
+@media only screen and (max-width:980px){
+    .container{
+        width:100%;
+    }
+
+    #content-box{
+        text-align:left;
+        width:65%;
+        margin:40px;
+    }
+}
+
+@media only screen and (max-width:640px){
+    .container{
+        float:none;
+        text-align:center;
+    }

@@ -14,32 +14,32 @@
 </head>
 
 <body>
-    <header>
-        <img src="assets/images/banner.png" alt="Hangman Banner" class="center">
+    <header class="container">
+        <img src="assets/images/GuessBan.png" alt="Word Guess Game">
     </header>
 
-    <div class="container">
+    <div class="container" id="main-content">
         <div class="row">
-            <div class="col-md-6">
-                <img id="col-img" src="assets/images/Hangman.jpg">
-            </div>
             <div class="col-md-6" id="game-box">
-            <p class="text-danger">PRESS ANY KEY TO GET STARTED!</p>
-            <p class="text-danger">WINS:</p>
-            <p class="text-danger" id="wins"></p>
-            <p class="text-danger">CURRENT WORD</p>
-            <p class="text-danger" id="chosenWord"></p>
-            <p class="text-danger">NUMBER OF GUESSES REMANING</p>
-            <p class="text-danger" id="guessRemain"></p>
-            <p class="text-danger">LETTERS ALREADY GUESSED</p>
-            <p class="text-danger" id="alreadyGuessed"></p>
+                <p>PRESS ANY KEY TO GET STARTED!</p>
+                <p>WINS:</p>
+                <p id="wins"></p>
+                <p>CURRENT WORD</p>
+                <p id="chosenWord"></p>
+                <p>NUMBER OF GUESSES REMANING</p>
+                <p id="guessRemain"></p>
+                <p>LETTERS ALREADY GUESSED</p>
+                <p id="alreadyGuessed"></p>
+            </div>
+            <div class="col-md-6">
+                <img id="col-img" src="assets/images/S30.jpg">
             </div>
         </div>      
     </div>
 
-    <footer class="footer py-3 text-danger">
-        <div class="container">
-            <p class="text-white text-center"><small>Copyright &copy; 2018, Danny Nguyen</small></p>
+    <footer>
+        <div class="container" id="main-footer">
+            <p class="text-center"><small>Copyright &copy; 2018, Danny Nguyen</small></p>
         </div>
     </footer>
 
