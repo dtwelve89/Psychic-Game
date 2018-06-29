@@ -7,18 +7,10 @@ header img{
 }
 
 body{
-    background-color: black;
     font:normal 16px/1.6em 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
+    color:#d7f905;
     display:flex;
     flex-direction:column;
-}
-
-.center{
-    display:block;
-    margin-left:auto;
-    margin-right:auto;
-    margin-top:50px;
-    width:1000px;
 }
 
 .container{
@@ -35,7 +27,6 @@ body{
 
 #game-box{
     text-align:center;
-    margin-top:50px;
 }
 
 #main-content{
@@ -68,3 +59,4 @@ body{
         float:none;
         text-align:center;
     }
+}

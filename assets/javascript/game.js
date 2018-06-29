@@ -1,33 +1,34 @@
 // Array with possible words to guess (12)
 var wordChoices =[
-    "DEATH",
-    "BLOOD",
-    "HOMICIDE",
-    "DANGER",
-    "GHOST",
-    "BOOGEYMAN",
-    "HALLOWEEN",
-    "OCTOBER",
-    "HORROR",
-    "SCREAMS",
-    "REDRUM",
-    "SHINING"
+    "SPLASH",
+    "CURRY",
+    "DURANT",
+    "IGUODALA",
+    "GREEN",
+    "THOMPSON",
+    "WARRIORS",
+    "CROSSOVER",
+    "STEPBACK",
+    "TRANSITION",
+    "PULLUP",
+    "CHAMPIONS"
 ];
 
 //Variable for Wins, Guesses Remaining, and Already Guessed
 var wins = 0;
 var guessRemain = 12;
 var alreadyGuessed = [];
+var wordDisplay =[];
 
 // Select a word at random within the array to be in play
 var chosenWord = wordChoices[Math.floor(Math.random() * wordChoices.length)];
 
 // Word in play will be hidden
-var wordDisplay =[];
+function hideWord(){    
     for (var i = 0; i < chosenWord.length; i++){
         wordDisplay[i] = "_";
     }
-
+}
 //Render Chosen Word, Guesses Remaining, and Already Guessed
 function renderChosenWord(){
     document.querySelector("#chosenWord").innerHTML = wordDisplay.join(" ");
@@ -54,20 +55,17 @@ function updateWins(){
 function updateGame(){
     chosenWord = wordChoices[Math.floor(Math.random() * wordChoices.length)];
     wordDisplay =[];
-    for (var i = 0; i < chosenWord.length; i++){
-        wordDisplay[i] = "_";
-    }
+    hideWord();
     renderChosenWord();
     guessRemain = 12;
     renderGuessRemain();
     alreadyGuessed =[];
     renderAlreadyGuessed();
-    console.log("THE WORD IS: "+ chosenWord + "... TSK TSK CHEATER! HAHA");
 }
 
 function youLose(){
     if (guessRemain <= 0){
-        alert("You've lost! You had " + wins + " wins... I guess you can live...")
+        alert("You've lost! You had " + wins + " wins")
         wins = 0;
         updateGame();
     }
@@ -92,4 +90,5 @@ document.onkeyup = function(event){
     youLose();
 }
 renderChosenWord();
+hideWord();
 renderGuessRemain();
